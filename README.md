@@ -4,6 +4,6 @@
  
 # Sequence
 # Warmup
-*this is a beginner level so it might be a bit easier. if your level is higher then choose another topic
-*There are 20 issues so far
+* this is a beginner level so it might be a bit easier. if your level is higher then choose another topic
+* There are 20 issues so far
  
