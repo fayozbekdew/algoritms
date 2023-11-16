@@ -131,7 +131,97 @@ function nTwice(str, n){
 function nTwice(str, n){
     return n == 0 ? '' : str.substr(0,n) + str.substr(-n)
   }
-
-
-
+//? =========================== 14 ===============================
+// Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with "badxxx" or "xbadxx" but not "xxbadxx". The string may be any length, including 0.
+//* Examples
+// hasBad('badxx') → true
+// hasBad('xbadxx') → true
+// hasBad('xxbadxx') → false
+//! Answer
+function hasBad(str){
+  if(str.substr(0, 3) == 'bad' || str.substr(1,3) == 'bad'){
+  return true
+  }
+  return false
+}
+//? =========================== 15 ===============================
+// Given a string, return a string length 2 made of its first 2 chars. If the string length is less than 2, use '@' for the missing chars.
+//* Examples
+// atFirst('hello') → he
+// atFirst('hi') → hi
+// atFirst('h') → h@
+//! Answer
+function atFirst(str){
+  if(str.length == 0){
+  return '@@'
+  }else if(str.length < 2 ){
+  return str + '@'
+  }
+  return str.slice(0,2)
+}
+//? =========================== 16 ===============================
+// Given 2 strings, a and b, return a new string made of the first char of a and the last char of b, so "yo" and "java" yields "ya". If either string is length 0, use '@' for its missing char.
+//* Examples
+// lastChars('last', 'chars') → ls
+// lastChars('yo', 'java') → ya
+// lastChars('hi', '') → h@
+//! Answer
+function lastChars(a, b){
+  const arr = []
+  if(a.length >= 1){
+  arr.push(a)
+  }
+  if(b.length >= 1){
+  arr.push(b)
+  }
+  let newstr = arr.join('')
+  let newArr = newstr.split('')
+  if(a.length == 0 && b.length == 0){
+  return '@@'
+  }else if(a.length == 0 && b.length > 0){
+  return '@' + newArr.at(-1) 
+  }
+  else if(arr.length < 2){
+      return(newArr.at(0) + '@')
+  }
+  return newArr.at(0) + newArr.at(-1)
+}
+//? =========================== 17 ===============================
+//Given two strings, append them together (known as "concatenation") and return the result. However, if the concatenation creates a double-char, then omit one of the chars, so "abc" and "cat" yields "abcat".
+//* Examples
+// conCat('abc', 'cat') → abcat
+// conCat('dog', 'cat') → dogcat
+// conCat('abc', '') → abc
+//! Answer
+function conCat(a, b){
+  if(a.at(-1) == b.at(0)){
+  return a + b.slice(1)
+  }
+  return a + b
+}
+//? =========================== 18 ===============================
+// Given a string of any length, return a new string where the last 2 chars, if present, are swapped, so "coding" yields "codign".
+//* Examples
+// lastTwo('coding') → codign
+// lastTwo('cat') → cta
+// lastTwo('ab') → ba
+//! Answer
+function lastTwo(str){
+  return str.length > 1 ? str.slice(0,-2) + str.at(-1) + str.at(-2) : str 
+}
+//? =========================== 19 ===============================
+// Given a string, if the string begins with "red" or "blue" return that color string, otherwise return the empty string.
+//* Examples
+// seeColor('redxx') → red
+// seeColor('xxred') → ''
+// seeColor('blueTimes') → blue
+//! Answer
+function seeColor(str){
+  if(str.startsWith('red') ){
+  return 'red'
+  }else if(str.startsWith('blue')){
+  return 'blue'
+  }
+  return ''
+}
 
