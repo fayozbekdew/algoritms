@@ -224,4 +224,107 @@ function seeColor(str){
   }
   return ''
 }
+//? =========================== 21 ===============================
+//Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with "edited".
+//* Examples
+// frontAgain('edited') → true
+// frontAgain('edit') → false
+// frontAgain('ed') → true
+//! Answer
+function frontAgain(str){
+  if(str.substr(0,2) == str.slice(-2) && str.length > 1){
+  return true
+  }
+  return false
+}
+//? =========================== 22 ===============================
+//Given a string, return a new string made of 3 copies of the first 2 chars of the original string. The string may be any length. If there are fewer than 2 chars, use whatever is there.
+//* Examples
+// extraFront('Hello') → HeHeHe
+// extraFront('ab') → ababab
+// extraFront('H') → HHH
+//! Answer
+function extraFront(str){
+  return str.length > 1 ? str.substr(0,2).repeat(3) : str.repeat(3)
+}
+//? =========================== 23 ===============================
+// Given a string, if a length 2 substring appears at both its beginning and end, return a string without the substring at the beginning, so "HelloHe" yields "lloHe". The substring may overlap with itself, so "Hi" yields "". Otherwise, return the original string unchanged.
+//* Examples
+// without2('HelloHe') → lloHe
+// without2('HelloHi') → HelloHi
+// without2('Hi') →
+//! Answer
+function without2(str){
+  if(str.substr(0,2) === str.slice(-2) && str.length > 1){
+  return str.slice(2)
+  }
+  return str
+}
+//? =========================== 24 ===============================
+// Given a string, return a version without the first 2 chars. Except keep the first char if it is 'a' and keep the second char if it is 'b'. The string may be any length. Harder than it looks.
+//* Examples
+// deFront('Hello') → llo
+// deFront('java') → va
+// deFront('away') → aay
+//! Answer
+function deFront(str){
+  if(str.at(0) == 'a' && str.at(1) == 'b'){return `ab${str.slice(2)}`}
+  else if(str.at(0) == 'a'){
+  return `a${str.slice(2)}`
+  }else if(str.at(1) == 'b'){
+  return `b${str.slice(2)}`
+  }
+  return str.slice(2)
+}
+//? =========================== 25 ===============================
+// Given a string, if the first or last chars are 'x', return the string without those 'x' chars, and otherwise return the string unchanged.
+//withoutX('xHix') → Hi
+// withoutX('xHi') → Hi
+// withoutX('Hxix') → Hxi
+//! Answer
+function withoutX(str){
+  if(str.at(0) == 'x' && str.at(-1) == 'x'){
+  return str.slice(1,-1)
+  }
+  else if(str.at(-1) == 'x'){
+  return str.slice(0,-1)
+  }else if(str.at(0) == 'x'){
+  return str.slice(1)
+  }
+  return str
+}
+//? =========================== 26 ===============================
+// Given a string, if one or both of the first 2 chars is 'x', return the string without those 'x' chars, and otherwise return the string unchanged. This is a little harder than it looks.
+// withoutX2('xHi') → Hi
+// withoutX2('Hxi') → Hi
+// withoutX2('Hi') → Hi
+//! Answer
+function withoutX2(str){
+  if(str.at(0) == 'x' && str.at(1) == 'x'){
+  return str.slice(2)
+  }else if(str.at(0) == 'x'){
+  return str.slice(1)
+  }else if(str.at(1) == 'x'){
+  return str.slice(0,1) + str.slice(2)
+  }
+  return str
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
