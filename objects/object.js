@@ -1,5 +1,5 @@
 // #    /////////////////object/////////////////
-// No1
+//? =========================== 01 ===============================
 // object keylarini toping
 // let obj={
 //     id:1,
@@ -7,7 +7,14 @@
 // }
 // chiqish
 // id,name
-// no2
+//! Answer
+// 1)
+for (let value in obj){
+    console.log(value)
+}
+// 2)
+Object.keys(obj)  // [id, name] 
+//? =========================== 02 ===============================
 // object valuelarining raqamga tenglarini toping
 // let obj={
 //     id:1,
