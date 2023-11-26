@@ -309,16 +309,156 @@ function withoutX2(str){
   }
   return str
 }
-
-
-
-
-
-
-
-
-
-
+//? =========================== 27 ===============================
+// Given a string, return a string where for every char in the original, there are two chars.
+// doubleChar('The') → TThhee
+// doubleChar('AAbb') → AAAAbbbb
+// doubleChar('Hi-There') → HHii--TThheerree
+//! Answer
+function doubleChar(str){
+  let arr = []
+for(let a of str){
+ arr.push(a + a)
+}
+return ( arr.join(''))
+}
+//? =========================== 28 ===============================
+//Return the number of times that the string "hi" appears anywhere in the given string.
+// countHi('abc hi ho') → 1
+// countHi('ABChi hi') → 2
+// countHi('hihi') → 2
+//! Answer
+function countHi(str){
+  let count = 0 
+  for(let a in str){
+    if((str.at(a) == 'h') && (str.at(++a) == 'i')){
+     count++
+      }
+  }
+return count
+}
+//? =========================== 28 ===============================
+//Return true if the string "cat" and "dog" appear the same number of times in the given string.
+//catDog('catdog') → true
+// catDog('catcat') → false
+// catDog('1cat1cadodog') → true
+//! Answer
+function catDog(str){
+  let catCount = 0
+  let dogCount = 0
+  for(let a in str){
+     if((str.at(a) == 'c') && (str.at(++a) == 'a') && (str.at(a += 1) == 't')){
+        catCount++
+     }else if((str.at(a) == 'd') && (str.at(++a) == 'o') && (str.at(a += 1) == 'g'))
+     { dogCount++ }
+  }
+  if(dogCount == catCount) {return true}
+  return false
+}
+//? =========================== 29 ===============================
+//Return the number of times that the string "code" appears anywhere in the given string, except we'll accept any letter for the 'd', so "cope" and "cooe" count.
+// countCode('aaacodebbb') → 1
+// countCode('codexxcode') → 2
+// countCode('cozexxcope') → 2
+//! Answer
+function countCode(str){
+  let Count = 0
+    for(let a in str){
+      if((str.at(a) == 'c') && (str.at(++a) == 'o')  && (str.at(a += 2) == 'e')){
+         Count++
+      }
+   }
+   return (Count)
+}
+//? =========================== 30 ===============================
+//Return true if the given string contains an appearance of "xyz" where the xyz is not directly preceeded by a period (.). So "xxyz" counts but "x.xyz" does not.
+// xyzThere('abcxyz') → true
+// xyzThere('abc.xyz') → false
+// xyzThere('xyz.abc') → true
+//! Answer
+function xyzThere(str){
+  if(!(str.at(-4) == '.') && str.slice(-3) == 'xyz'){
+  return true
+  }else if(str.substr(0,3) == 'xyz'){ return true}  
+    return false
+  }
+//? =========================== 31 ===============================
+//Return true if the given string contains a "bob" string, but where the middle 'o' char can be any char.
+// bobThere('abcbob') → true
+// bobThere('b9b') → true
+// bobThere('bac') → false
+//! Answer
+function bobThere(str){
+  for (let a in str){
+  if(str.at(a++) == 'b' && str.at(a += 1) == 'b'){
+  return true
+  }
+  }
+  return false
+}
+//? =========================== 32 ===============================
+//We'll say that a String is xy-balanced if for all the 'x' chars in the string, there exists a 'y' char somewhere later in the string. So "xxy" is balanced, but "xyx" is not. One 'y' can balance multiple 'x's. Return true if the given string is xy-balanced.
+// xyBalance('aaxbby') → true
+// xyBalance('aaxbb') → false
+// xyBalance('yaaxbb') → false
+//! Answer
+function xyBalance(str){
+  let xIndex = 0
+  let yIndex = 0
+    for(let a of str){
+      if(str.includes('x') && !str.includes('y'))
+        {return false}
+        else if(a == 'x'){
+            xIndex = str.lastIndexOf(a)
+        }
+        else if(a == 'y'){
+            yIndex = str.lastIndexOf(a)
+        }
+    }
+    return (xIndex > yIndex) ? false : true
+}
+//? =========================== 33 ===============================
+//Given a string and an int n, return a string made of n repetitions of the last n characters of the string. You may assume that n is between 0 and the length of the string, inclusive.
+// repeatEnd('Hello', 3) → llollollo
+// repeatEnd('Hello', 2) → lolo
+// repeatEnd('Hello', 1) → o
+//! Answer
+function repeatEnd(str, n){
+  return str.slice(-n).repeat(n)
+}
+//? =========================== 34 ===============================
+//Given a string and an int n, return a string made of the first n characters of the string, followed by the first n-1 characters of the string, and so on. You may assume that n is between 0 and the length of the string, inclusive (i.e. n >= 0 and n <= str.length()).
+//repeatFront('Chocolate', 4) → ChocChoChC
+// repeatFront('Chocolate', 3) → ChoChC
+// repeatFront('Ice Cream', 2) → IcI
+//! Answer
+function repeatFront(str, n){
+  let newStr = ''
+  for(let i = n; i > 0; i--){
+    newStr += str.slice(0,i)
+  }
+return(newStr)
+}
+//? =========================== 35 ===============================
+//Given two strings, word and a separator sep, return a big string made of count occurrences of the word, separated by the separator string..
+// repeatSeparator('Word', 'X', 3) → WordXWordXWord
+// repeatSeparator('This', 'And', 2) → ThisAndThis
+// repeatSeparator('This', 'And', 1) → This
+//! Answer
+function repeatSeparator(word, sep, count){
+  return (word + sep).repeat(--count)+ word
+}
+//? =========================== 36 ===============================
+//Given two strings, word and a separator sep, return a big string made of count occurrences of the word, separated by the separator string.
+//repeatSeparator('Word', 'X', 3) → WordXWordXWord
+// repeatSeparator('This', 'And', 2) → ThisAndThis
+// repeatSeparator('This', 'And', 1) → This
+//! Answer
+function repeatSeparator(word, sep, count){
+  let str = (word + sep).repeat(count)
+  if(count == 1){return word}
+  return(str.slice(0, -sep.length))
+}
 
 
 
