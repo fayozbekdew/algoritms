@@ -47,3 +47,31 @@ var differenceOfSums = function(n, m) {
 };
 
 // differenceOfSums(10, 3)
+
+//GEENARATOR function
+var fibGenerator = function*() {
+    let current = 0;
+    let nextVal = 1;
+    while (true){
+        yield current; // 0, 1, 
+        [current,nextVal] = [nextVal,current+nextVal];
+        // [ c0 , n1]
+        // [ c1 , n1]
+        // [c1 , n2]
+        // [c2 , n3]
+        // [c3 , n4]
+        // [c4 , n5]
+    }
+  };
+  let aa = fibGenerator(5);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+//   console.log(aa.next().value);
+  
