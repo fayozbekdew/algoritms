@@ -53,3 +53,28 @@ var rotateRight = function (head, k) {
 
   return newHead;
 };
+
+
+//! Question number: 65 == Topic: string == Level:hard
+// Masala shart => berilgan qiymatni raqam ekanligini tekshiring
+var isNumber = function(s) {
+  if(s === 'Infinity' || s === '-Infinity' || s === '+Infinity') return false
+  return !isNaN(Number(s));
+};
+// yoki boshqacharoq va to'liq yechim
+var isNumber = function(S) {
+  let exp = false, sign = false, num = false, dec = false
+  for (let c of S)
+      if (c >= '0' && c <= '9') num = true     
+      else if (c === 'e' || c === 'E')
+          if (exp || !num) return false
+          else exp = true, sign = false, num = false, dec = false
+      else if (c === '+' || c === '-')
+          if (sign || num || dec) return false
+          else sign = true
+      else if (c === '.')
+          if (dec || exp) return false
+          else dec = true
+      else return false
+  return num
+};
