@@ -26,3 +26,30 @@ function idxFun(pattern) {
   return p;
 }
 console.log(wordPattern("abba", "dog cat cat fish"));
+
+//! question:318 == topic:array,string,bit manupilation == level:medium
+// Masala sharti => array ichida stringlar ro'yhati berilgan bo'lsa undagi bir birida takrorlanmagan
+//harflar bor ikki eng uzun string ko'paytmasini qaytarsin
+var maxProduct = function (words) {
+  if (words.length <= 1) return 0;
+  let max = 0;
+  for (let i = 0; i < words.length; i++) {
+    for (let j = i + 1; j < words.length; j++) {
+      if (inc(words[i], words[j])) {
+        let n = words[i].length * words[j].length;
+        if (n >= max) {
+          max = n;
+        }
+      }
+    }
+  }
+  return max;
+};
+function inc(word1, word2) {
+  for (let i = 0; i < word1.length; i++) {
+    if (word2.includes(word1[i])) {
+      return false;
+    }
+  }
+  return true;
+}
